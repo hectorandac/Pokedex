@@ -3,6 +3,7 @@ class CreateStats < ActiveRecord::Migration[5.0]
     create_table :stats do |t|
       t.string :name
       t.integer :base_stat
+      t.references :pokemon, foreign_key: true
 
       t.timestamps
     end
