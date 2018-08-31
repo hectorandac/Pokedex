@@ -15,9 +15,13 @@ module Pokemon2
     #
     #
     config.after_initialize do
+
+      # Indicates the amount of pokemons to import
       base = 50
       if Pokemon.all.size <= base
+        # Asynchronous job for getting the pokemons
         Thread.new {
+          # There is a limit of 50 pokemons per initialization.
           (base...(base + 50)).each {|i|
             url = URI.parse("https://pokeapi.co/api/v2/pokemon/#{i}/")
             req = Net::HTTP.new(url.host, url.port)
@@ -27,6 +31,8 @@ module Pokemon2
             response = req.request(request)
 
             pokemon = JSON.parse(response.body)
+
+            #Registers the received pokemon
             Pokemon.register(pokemon)
           }
         }
