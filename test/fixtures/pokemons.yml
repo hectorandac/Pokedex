@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sprite: MyString
+  stat: one
+  ability: one
+  weight: 1
+
+two:
+  name: MyString
+  sprite: MyString
+  stat: two
+  ability: two
+  weight: 1
